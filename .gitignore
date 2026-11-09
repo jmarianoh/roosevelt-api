@@ -1,0 +1,12 @@
+node_modules/
+dist/
+.local-data/
+Cartolas*/
+egresos/
+*.sqlite
+*.sqlite-shm
+*.sqlite-wal
+*.tsbuildinfo
+.env*
+!.env.example
+.DS_Store
