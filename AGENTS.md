@@ -22,6 +22,7 @@ Todo el servidor está en `server/index.ts`: esquema, importadores, autenticaci�
 - `HOST`: por defecto `127.0.0.1`. La imagen Docker usa `0.0.0.0`.
 - `PORT`: por defecto `3001`.
 - `ALLOWED_ORIGIN`: orígenes permitidos, separados por comas. Por defecto, los de Vite en local.
+- `COOKIE_SECURE`: pon `true` en producción tras HTTPS para marcar la cookie de sesión como `Secure`. Por defecto no lo es.
 
 ## Datos: reglas estrictas
 
