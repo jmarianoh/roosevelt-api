@@ -11,7 +11,7 @@ npm install
 npm run dev
 ```
 
-Escucha en http://127.0.0.1:3001. El primer inicio de la app pide crear la cuenta de tesorero.
+Escucha en http://127.0.0.1:3001. El primer inicio de la app pide crear la primera cuenta del comité.
 
 ## Datos
 

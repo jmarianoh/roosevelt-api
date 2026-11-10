@@ -34,7 +34,7 @@ Todo el servidor está en `server/index.ts`: esquema, importadores, autenticaci�
 ## Puntos delicados
 
 - El esquema se crea con `CREATE TABLE IF NOT EXISTS` y no hay migraciones. Cambiar una definición no modifica las bases existentes, así que un cambio de esquema necesita un `ALTER TABLE` explícito y compatible con los datos actuales y con la restauración de respaldos.
-- `POST /api/backup/restore` reemplaza los datos, y solo puede usarlo el rol `tesorero`.
+- `POST /api/backup/restore` reemplaza los datos,.
 - Los montos son enteros en pesos chilenos. No uses decimales.
 - Los documentos se deduplican por `sha256`.
 - Las cartolas se reconocen por el nombre del archivo: `Mes AAAA.xls` o `.xlsx`, por ejemplo `Octubre 2026.xls`.
@@ -44,7 +44,7 @@ Todo el servidor está en `server/index.ts`: esquema, importadores, autenticaci�
 ## Autenticación y rutas nuevas
 
 - La sesión va en la cookie `roosevelt_session`, y en la base solo se guarda el hash del token. Las contraseñas usan `scrypt` con sal.
-- Roles: `tesorero` y `comite`.
+- Rol único: `comite` (el esquema aún acepta `tesorero` por el CHECK, pero se normaliza a `comite` al iniciar).
 - Las únicas rutas públicas son `/api/session`, `/api/bootstrap`, `/api/login` y `/api/health`. Toda ruta nueva lleva `{ preHandler: requireUser }`.
 - Las operaciones reservadas comprueban `req.user.role` y responden 403.
 - Registra las acciones que cambian datos con `audit()`, que alimenta la página Actividad.
